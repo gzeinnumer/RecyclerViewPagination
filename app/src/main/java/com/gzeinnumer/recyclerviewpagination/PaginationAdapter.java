@@ -161,15 +161,6 @@ public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         }
     }
 
-    /*
-        Helpers - bind Views
-   _________________________________________________________________________________________________
-    */
-
-    /**
-     * @param result
-     * @return [releasedate] | [2letterlangcode]
-     */
     private String formatYearLabel(Result result) {
         return result.getReleaseDate().substring(0, 4)  // we want the year only
                 + " | "
@@ -182,12 +173,6 @@ public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 .load(BASE_URL_IMG + posterPath)
                 .centerCrop();
     }
-
-
-    /*
-        Helpers - Pagination
-   _________________________________________________________________________________________________
-    */
 
     public void add(Result r) {
         movieResults.add(r);
@@ -241,12 +226,6 @@ public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         return movieResults.get(position);
     }
 
-    /**
-     * Displays Pagination retry footer view along with appropriate errorMsg
-     *
-     * @param show
-     * @param errorMsg to display if page load fails
-     */
     public void showRetry(boolean show, @Nullable String errorMsg) {
         retryPageLoad = show;
         notifyItemChanged(movieResults.size() - 1);
@@ -254,15 +233,6 @@ public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         if (errorMsg != null) this.errorMsg = errorMsg;
     }
 
-
-   /*
-   View Holders
-   _________________________________________________________________________________________________
-    */
-
-    /**
-     * Header ViewHolder
-     */
     protected class HeroVH extends RecyclerView.ViewHolder {
         private TextView mMovieTitle;
         private TextView mMovieDesc;
@@ -279,9 +249,6 @@ public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         }
     }
 
-    /**
-     * Main list's content ViewHolder
-     */
     protected class MovieVH extends RecyclerView.ViewHolder {
         private TextView mMovieTitle;
         private TextView mMovieDesc;
@@ -299,7 +266,6 @@ public class PaginationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             mProgress = itemView.findViewById(R.id.movie_progress);
         }
     }
-
 
     protected class LoadingVH extends RecyclerView.ViewHolder implements View.OnClickListener {
         private ProgressBar mProgressBar;
