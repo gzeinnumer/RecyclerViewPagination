@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements PaginationAdapter
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
         initView();
 
@@ -69,7 +70,6 @@ public class MainActivity extends AppCompatActivity implements PaginationAdapter
     }
 
     private void initView() {
-        setContentView(R.layout.activity_main);
         rv = findViewById(R.id.main_recycler);
         progressBar = findViewById(R.id.main_progress);
         errorLayout = findViewById(R.id.error_layout);
